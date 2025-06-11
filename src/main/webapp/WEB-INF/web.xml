@@ -6,7 +6,7 @@
 
     <!-- Este welcome nos ayuda para que la primera pagina sea la del login y no otra -->
     <welcome-file-list>
-        <welcome-file>PagPrincipal.jsp</welcome-file>
+        <welcome-file>Login.jsp</welcome-file>
     </welcome-file-list>
 
 
