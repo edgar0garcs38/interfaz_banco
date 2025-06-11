@@ -46,28 +46,28 @@
         <div class="row text-center mb-3">
             <div class="col-6 col-md-3 mb-3">
                 <!-- CAMBIA href A LA RUTA DE VALIDACIÓN -->
-                <a href="validaciones.jsp" class="icon-box text-decoration-none text-dark">
+                <a href="Validacion.jsp" class="icon-box text-decoration-none text-dark">
                     <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Validación" />
                     <strong>VALIDACION</strong>
                 </a>
             </div>
             <div class="col-6 col-md-3 mb-3">
                 <!-- CAMBIA href A LA RUTA DE PRÉSTAMOS -->
-                <a href="prestamos.html" class="icon-box text-decoration-none text-dark">
+                <a href="Prestamos.jsp" class="icon-box text-decoration-none text-dark">
                     <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Préstamos" />
                     <strong>PRESTAMOS</strong>
                 </a>
             </div>
             <div class="col-6 col-md-3 mb-3">
                 <!-- CAMBIA href A LA RUTA DE APORTACIONES -->
-                <a href="aportaciones.jsp" class="icon-box text-decoration-none text-dark">
+                <a href="Aportaciones.jsp" class="icon-box text-decoration-none text-dark">
                     <img src="https://cdn-icons-png.flaticon.com/512/2460/2460164.png" alt="Aportaciones" />
                     <strong>APORTACIONES</strong>
                 </a>
             </div>
             <div class="col-6 col-md-3 mb-3">
                 <!-- CAMBIA href A LA RUTA DE REPORTES PDF -->
-                <a href="reportes.jsp" class="icon-box text-decoration-none text-dark">
+                <a href="Reportes.jsp" class="icon-box text-decoration-none text-dark">
                     <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="Reportes PDF" />
                     <strong>REPORTES PDF</strong>
                 </a>
@@ -76,10 +76,12 @@
 
         <!-- CAMBIA LA RUTA DEL CIERRE DE SESIÓN SEGÚN TU LÓGICA -->
         <a href="logout.html" class="btn btn-danger w-100">CERRAR SESIÓN</a>
+
     </div>
 </div>
 
 <!-- Bootstrap Bundle JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
