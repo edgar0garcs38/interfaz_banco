@@ -3,12 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
-<<<<<<< HEAD
-=======
+
     <!-- Este welcome nos ayuda para que la primera pagina sea la del login y no otra -->
     <welcome-file-list>
         <welcome-file>Login.jsp</welcome-file>
     </welcome-file-list>
 
->>>>>>> 08f8108 (Israel apartado visual con recarga de paginas)
+
 </web-app>
