@@ -71,7 +71,7 @@ public class PrestamoServlet extends HttpServlet {
                     break;
             }
 
-            // Fechas de inicio y fin (ajusta la lógica si es necesario)
+            // Fechas de inicio y fin
             LocalDateTime fechaInicio = LocalDateTime.now();
             LocalDateTime fechaFin = fechaInicio.plusMonths(plazo);
             String estado = "Pendiente";
