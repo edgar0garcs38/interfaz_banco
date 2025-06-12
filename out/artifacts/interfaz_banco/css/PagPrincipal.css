@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: 50px;
+    background-color: #e0e0e0;
+    /* Aquí se puede colocar el logo */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-id {
+    font-size: 14px;
+}
+
+.cuentas-title {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cuentas-btn {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.espacio-vacio {
+    flex: 1;
+    background-color: #eee;
+    height: 40px;
+}
+
+.cuentas {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.cuenta-box {
+    background-color: #e8e8e8;
+    padding: 15px;
+    width: 45%;
+}
+
+.nombre {
+    font-weight: bold;
+}
+
+.tipo, .saldo-label {
+    font-size: 14px;
+    color: #555;
+}
+
+.saldo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.opcion {
+    width: 22%;
+    text-align: center;
+}
+
+.opcion-btn {
+    width: 100%;
+    background-color: #ccc;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.icono-placeholder {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    background-color: #d0d0ff;
+    border-radius: 50%;
+}
+
+footer {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.cerrar-sesion {
+    background-color: #ddd;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+}
+img{
+    height: 130px;
+    width: 130px;
+    border-radius: 5px;
+}
