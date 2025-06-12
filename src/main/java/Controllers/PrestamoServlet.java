@@ -8,10 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Timestamp;
+import java.sql.*;
+import java.time.LocalDateTime;
+
+import models.Usuario;
 
 @WebServlet("/prestamo")
 public class PrestamoServlet extends HttpServlet {
@@ -19,11 +19,11 @@ public class PrestamoServlet extends HttpServlet {
     private final String USER = "root";
     private final String PASS = "tu_contraseña";
 
-    //implementacion metodo post
+    // Implementación del método POST
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Obtenemos la sesión actual y verificamos si hay un usuario logueado
+        // Obtenemos la sesión actual y verificamos si hay un usuario logueado
         HttpSession sesion = request.getSession(false);
         Usuario usuario = (Usuario) sesion.getAttribute("usuarioLogueado");
 
@@ -31,32 +31,51 @@ public class PrestamoServlet extends HttpServlet {
             response.sendRedirect("login.jsp");
             return;
         }
+
         int idUsuario = usuario.getId();
-    }
-        //Recogemos los datos del formulario
+
+        // Recogemos los datos del formulario
         String tipo = request.getParameter("tipo");
         String montoStr = request.getParameter("monto");
+        String plazoStr = request.getParameter("plazo");
 
 
-        // Validar que los campos se envien vacios o nulos
-        if (tipo == null || tipo.isEmpty() || montoStr == null || montoStr.isEmpty()) {
-            request.setAttribute("mensaje", "Debes seleccionar un tipo de préstamo y escribir el monto.");
+        if (tipo == null || tipo.isEmpty() ||
+                montoStr == null || montoStr.isEmpty() ||
+                plazoStr == null || plazoStr.isEmpty()) {
+
+            request.setAttribute("mensaje", "Debes seleccionar un tipo de préstamo, escribir el monto y el plazo.");
             request.getRequestDispatcher("prestamos.jsp").forward(request, response);
             return;
-    }
+        }
+
         try {
-            //conbertimos los datos al tipo correspondiente
+            // Convertimos los datos al tipo correspondiente
             double monto = Double.parseDouble(montoStr);
+            int plazo = Integer.parseInt(plazoStr);
 
             // Calcular interés según tipo de préstamo
             double interes;
             switch (tipo) {
-                case "Consumo": interes = 0; break;//valores por definir
-                case "Educativo": interes = 0; break;
-                case "Emergente": interes = 0; break;
+                case "Consumo":
+                    interes = 0;
+                    break; // valores por definir
+                case "Educativo":
+                    interes = 0;
+                    break;
+                case "Emergente":
+                    interes = 0;
+                    break;
+                default:
+                    interes = 0;
+                    break;
+            }
 
+            // Fechas de inicio y fin (ajusta la lógica si es necesario)
+            LocalDateTime fechaInicio = LocalDateTime.now();
+            LocalDateTime fechaFin = fechaInicio.plusMonths(plazo);
+            String estado = "Pendiente";
 
-        }
             // Conectar a la base y guardar préstamo
             Connection conn = DriverManager.getConnection(URL, USER, PASS);
             String sql = "INSERT INTO Prestamos (idUsuarios, Tipo_Prestamo, Monto, Interes, Fecha_Inicio, Fecha_Fin, Estado) " +
@@ -78,18 +97,18 @@ public class PrestamoServlet extends HttpServlet {
                 request.setAttribute("mensaje", "Préstamo registrado correctamente.");
             } else {
                 request.setAttribute("mensaje", "No se pudo guardar el préstamo.");
-                stmt.close();
-                conn.close();
-
-            } catch (NumberFormatException e) {
-                request.setAttribute("mensaje", " Monto inválido.");
-            } catch (SQLException e) {
-                e.printStackTrace();
-                request.setAttribute("mensaje", "Error de base de datos: " + e.getMessage());
             }
 
-            request.getRequestDispatcher("prestamos.jsp").forward(request, response);
+            stmt.close();
+            conn.close();
 
+        } catch (NumberFormatException e) {
+            request.setAttribute("mensaje", "Monto inválido.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("mensaje", "Error de base de datos: " + e.getMessage());
         }
 
+        request.getRequestDispatcher("prestamos.jsp").forward(request, response);
+    }
 }
