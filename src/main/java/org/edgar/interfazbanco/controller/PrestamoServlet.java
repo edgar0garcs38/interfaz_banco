@@ -1,4 +1,4 @@
-package Controllers;
+package org.edgar.interfazbanco.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 
-import models.Usuario;
+import org.edgar.interfazbanco.models.Usuario;
 
 @WebServlet("/prestamo")
 public class PrestamoServlet extends HttpServlet {
